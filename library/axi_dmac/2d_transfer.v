@@ -35,7 +35,7 @@
 
 `timescale 1ns/100ps
 
-module dmac_2d_transfer #(
+module 2d_transfer #(
 
   parameter DMA_AXI_ADDR_WIDTH = 32,
   parameter DMA_LENGTH_WIDTH = 24,

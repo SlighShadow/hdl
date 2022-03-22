@@ -252,7 +252,7 @@ assign req_ready = req_enable & req_ready_gated;
 
 generate if (DMA_2D_TRANSFER == 1) begin
 
-dmac_2d_transfer #(
+2d_transfer #(
   .DMA_AXI_ADDR_WIDTH(DMA_AXI_ADDR_WIDTH),
   .DMA_LENGTH_WIDTH (DMA_LENGTH_WIDTH),
   .BYTES_PER_BURST_WIDTH (BYTES_PER_BURST_WIDTH),
@@ -315,7 +315,7 @@ assign dma_response_ready = req_response_ready;
 
 end endgenerate
 
-dmac_request_arb #(
+request_arb #(
   .DMA_DATA_WIDTH_SRC (DMA_DATA_WIDTH_SRC),
   .DMA_DATA_WIDTH_DEST (DMA_DATA_WIDTH_DEST),
   .DMA_LENGTH_WIDTH (DMA_LENGTH_WIDTH),
