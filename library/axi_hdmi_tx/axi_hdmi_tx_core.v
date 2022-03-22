@@ -511,7 +511,10 @@ module axi_hdmi_tx_core #(
 
   // data memory
 
-  ad_mem #(.DATA_WIDTH(48), .ADDRESS_WIDTH(9)) i_mem (
+  ad_mem #(
+    .DATA_WIDTH(48),
+    .ADDRESS_WIDTH(9)
+  ) i_mem (
     .clka (vdma_clk),
     .wea (vdma_wr),
     .addra (vdma_waddr),
@@ -523,7 +526,9 @@ module axi_hdmi_tx_core #(
 
   // color space coversion, RGB to CrYCb
 
-  ad_csc_RGB2CrYCb #(.DELAY_DATA_WIDTH(5)) i_csc_RGB2CrYCb (
+  ad_csc_RGB2CrYCb #(
+    .DELAY_DATA_WIDTH(5)
+  ) i_csc_RGB2CrYCb (
     .clk (hdmi_clk),
     .RGB_sync ({hdmi_hsync,
       hdmi_vsync,
@@ -540,7 +545,10 @@ module axi_hdmi_tx_core #(
 
   // sub sampling, 444 to 422
 
-  ad_ss_444to422 #(.DELAY_DATA_WIDTH(5), .CR_CB_N(CR_CB_N)) i_ss_444to422 (
+  ad_ss_444to422 #(
+    .DELAY_DATA_WIDTH(5),
+    .CR_CB_N(CR_CB_N)
+  ) i_ss_444to422 (
     .clk (hdmi_clk),
     .s444_de (hdmi_clip_de_d),
     .s444_sync ({hdmi_clip_hs_d,
@@ -558,7 +566,9 @@ module axi_hdmi_tx_core #(
 
   // embedded sync
 
-  axi_hdmi_tx_es #(.DATA_WIDTH(16)) i_es (
+  axi_hdmi_tx_es #(
+    .DATA_WIDTH(16)
+  ) i_es (
     .hdmi_clk (hdmi_clk),
     .hdmi_hs_de (hdmi_es_hs_de),
     .hdmi_vs_de (hdmi_es_vs_de),
